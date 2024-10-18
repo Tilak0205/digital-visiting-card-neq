@@ -4,14 +4,17 @@
     <nav class="navbar">
       <div class="navbar-container">
         <div class="logo">Digital Card Generator</div>
-        <ul class="navbar-links">
-          <li><router-link to="/">Home</router-link></li>
-          <li><router-link to="/templates">Templates</router-link></li>
-          <li><a href="">Contact</a></li>
+        <div class="menu-icon" @click="toggleMenu">
+          <i class="fas" :class="isMenuOpen ? 'fa-times' : 'fa-bars'"></i>
+        </div>
+        <ul class="navbar-links" :class="{ 'navbar-links-active': isMenuOpen }">
+          <li><router-link to="/" @click="toggleMenu">Home</router-link></li>
+          <li><router-link to="/templates" @click="toggleMenu">Templates</router-link></li>
+          <li><a href="#" @click="toggleMenu">Contact</a></li>
         </ul>
       </div>
     </nav>
-    
+
     <!-- Router View (renders the current page) -->
     <router-view></router-view>
   </div>
@@ -22,7 +25,13 @@ import Vue from 'vue';
 import { Component } from 'vue-property-decorator';
 
 @Component
-export default class App extends Vue {}
+export default class App extends Vue {
+  isMenuOpen: boolean = false;
+
+  toggleMenu() {
+    this.isMenuOpen = !this.isMenuOpen;
+  }
+}
 </script>
 
 <style scoped>
@@ -73,6 +82,15 @@ html, body {
   color: white;
 }
 
+/* Menu icon (hamburger) */
+.menu-icon {
+  display: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: white;
+}
+
+/* Navbar links */
 .navbar-links {
   list-style: none;
   display: flex;
@@ -97,22 +115,43 @@ html, body {
   color: #ffdd57;
 }
 
+/* Mobile menu link styles */
+.navbar-links-active {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
 /* Mobile responsiveness */
 @media (max-width: 768px) {
   .navbar-container {
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
   }
 
+  /* Show menu icon on mobile */
+  .menu-icon {
+    display: block;
+  }
+
+  /* Hide navbar links by default */
   .navbar-links {
-    flex-direction: column;
-    gap: 10px;
+    display: none;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background-color: #226e95;
+    padding: 10px 20px;
+    border-radius: 0 0 10px 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    text-align: center;
   }
-}
 
-.app-title {
-  color: #333;
-  font-size: 2rem;
-  font-weight: 600;
-  margin-top: 30px;
+  /* Show navbar links when menu is open */
+  .navbar-links-active {
+    display: flex;
+  }
 }
 </style>

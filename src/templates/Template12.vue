@@ -55,6 +55,34 @@ export default class Template12 extends Vue {
   border-radius: 15px;
   background-color: #1f2937;
   position: relative;
+  overflow: hidden; /* Prevent overflow */
+}
+
+@media (max-width: 768px) {
+  .template-box {
+    width: 350px; /* Adjust width for mobile */
+  }
+
+  .name {
+    font-size: 18px;
+  }
+
+  .title,
+  .company {
+    font-size: 10px; /* Smaller font size for mobile */
+  }
+
+  .contact-info {
+    font-size: 10px; /* Reduce font size for contact info */
+  }
+
+  .contact-item {
+    font-size: 9px; /* Make sure the contact info fits */
+  }
+
+  .left-section, .right-section {
+    padding: 10px; /* Adjust padding on smaller screens */
+  }
 }
 
 .left-section {
@@ -62,26 +90,40 @@ export default class Template12 extends Vue {
   background-color: #4b5563;
   padding: 20px;
   border-radius: 15px 0 0 15px;
+  word-wrap: break-word; /* Ensure long text wraps */
 }
 
 .info-box {
   color: white;
   font-size: 14px;
+  max-width: 100%; /* Prevent overflow */
 }
 
 .name {
   font-size: 20px;
   font-weight: bold;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap; /* Truncate long names */
 }
 
 .title {
   font-size: 12px;
   margin-top: 4px;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap; /* Truncate long titles */
 }
 
 .company {
   font-size: 12px;
   margin-top: 8px;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap; /* Truncate long company names */
 }
 
 .right-section {
@@ -90,22 +132,26 @@ export default class Template12 extends Vue {
   padding: 20px;
   border-radius: 0 15px 15px 0;
   position: relative;
+  max-width: 100%; /* Prevent overflow */
 }
 
 .contact-box {
   background-color: rgba(255, 255, 255, 0.2);
   padding: 20px;
   border-radius: 10px;
+  max-width: 100%; /* Ensure the box does not overflow */
 }
 
 .contact-info {
   color: white;
   font-size: 12px;
+  word-wrap: break-word; /* Ensure long text wraps */
 }
 
 .contact-item {
   margin-bottom: 8px;
   font-size: 10px;
+  word-wrap: break-word;
 }
 
 .contact-item i {

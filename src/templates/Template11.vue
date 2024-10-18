@@ -53,6 +53,33 @@ export default class Template11 extends Vue {
   width: 450px;
   height: 250px;
   border-radius: 15px;
+  overflow: hidden; /* Prevent overflow */
+}
+
+@media (max-width: 768px) {
+  .template-box {
+    width: 350px; /* Adjust width for mobile */
+  }
+
+  .name {
+    font-size: 18px;
+  }
+
+  .title {
+    font-size: 10px; /* Smaller font size for mobile */
+  }
+
+  .contact-info {
+    font-size: 10px; /* Reduce font size for contact info */
+  }
+
+  .contact-item {
+    font-size: 9px; /* Ensure contact items fit well */
+  }
+
+  .left-section, .right-section {
+    padding: 10px; /* Adjust padding on smaller screens */
+  }
 }
 
 .left-section {
@@ -60,21 +87,31 @@ export default class Template11 extends Vue {
   background: linear-gradient(to bottom right, #2563eb, #1d4ed8);
   padding: 20px;
   border-radius: 15px 0 0 15px;
+  word-wrap: break-word; /* Ensure text wraps within the container */
 }
 
 .info-box {
   color: white;
   font-size: 14px;
+  max-width: 100%; /* Ensure content does not overflow */
 }
 
 .name {
   font-size: 20px;
   font-weight: bold;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap; /* Truncate if the name is too long */
 }
 
 .title {
   font-size: 12px;
   margin-top: 4px;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap; /* Truncate long titles */
 }
 
 .right-section {
@@ -84,37 +121,30 @@ export default class Template11 extends Vue {
   justify-content: center;
   align-items: center;
   padding: 20px;
+  max-width: 100%; /* Prevent overflow */
 }
 
 .contact-box {
   background-color: #2563eb;
   padding: 20px;
   border-radius: 15px;
+  max-width: 100%; /* Ensure the box does not overflow */
 }
 
 .contact-info {
   color: white;
   font-size: 12px;
+  word-wrap: break-word;
 }
 
 .contact-item {
   margin-bottom: 8px;
   font-size: 10px;
+  word-wrap: break-word;
 }
 
 .contact-item i {
   color: white;
   margin-right: 8px;
-}
-
-/* Geometric Shape */
-.polygon-shape {
-  position: absolute;
-  width: 120px;
-  height: 120px;
-  background-color: #2563eb;
-  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-  bottom: 10px;
-  right: 10px;
 }
 </style>

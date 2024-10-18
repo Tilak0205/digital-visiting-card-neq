@@ -1,7 +1,7 @@
 <template>
   <div class="card-container flex w-full justify-center items-center">
     <!-- Card Section -->
-    <div class="card flex rounded-[20px] overflow-hidden" style="width: 450px; height: 250px;">
+    <div class="card flex rounded-[20px] overflow-hidden">
       <!-- Left Section (Diagonal Background for Name & Role) -->
       <div class="left-section bg-gradient-to-r from-purple-700 to-pink-500 text-white p-4 flex flex-col justify-center relative" style="flex: 1.5;">
         <!-- Diagonal Effect -->
@@ -50,6 +50,13 @@ export default class Template1 extends Vue {
 .card {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   position: relative;
+  width: 450px;
+  height: 250px;
+}
+@media (max-width: 768px) { /* Adjust for screens smaller than 768px */
+  .card {
+    width: 350px; /* Set width to 350px for mobile view */
+  }
 }
 
 .left-section {

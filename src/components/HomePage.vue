@@ -1,7 +1,7 @@
 <template>
   <div id="homepage">
     <div class="hero h-screen">
-      <div class="flex flex-col gap-y-2 content w-2/4 m-auto" style="margin-top: 6rem;">
+      <div class="flex flex-col gap-y-2 content w-11/12 md:w-2/4 m-auto" style="margin-top: 6rem;">
         <h1>The easiest way to share your details</h1>
         <h2>A digital business card allows you to instantly share who you are, with anyone, wherever you go</h2>
         <div class="buttons">
@@ -62,15 +62,38 @@ export default {
   font-size: 1.5rem;
 }
 
+/* Hero section */
 .hero {
   padding: 40px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
+/* Headings - responsive */
 .hero h1 {
-  font-size: 6rem;
+  font-size: 3rem;
   color: #333;
 }
 
+.hero h2 {
+  font-size: 1.25rem;
+  margin-top: 1rem;
+  color: #333;
+}
+
+/* Adjust font sizes and layout for larger screens */
+@media (min-width: 768px) {
+  .hero h1 {
+    font-size: 6rem;
+  }
+
+  .hero h2 {
+    font-size: 2rem;
+  }
+}
+
+/* Product image responsiveness */
 .product-image {
   max-width: 100%;
   height: auto;

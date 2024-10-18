@@ -1,7 +1,7 @@
 <template>
   <div class="card-container flex w-full justify-center items-center">
     <!-- Card Section -->
-    <div class="card flex rounded-[20px] overflow-hidden" style="width: 450px; height: 250px; position: relative;">
+    <div class="card flex rounded-[20px] overflow-hidden">
       <!-- Left Section (Personal Info) -->
       <div class="left-section bg-teal-600 text-white p-4 flex flex-col justify-between" style="flex: 1.5;">
         <div class="personal-info">
@@ -28,13 +28,13 @@
       <div class="right-section relative p-4 flex flex-col justify-center items-center" style="flex: 2; background-color: #f1f5f9;">
         <!-- Diagonal Shape Cut -->
         <div class="diagonal-shape bg-teal-600 absolute inset-0 transform -rotate-12 origin-bottom-left" style="z-index: -1; height: 100%; width: 110%;"></div>
-        
+
         <!-- Company Information -->
         <div class="company-info relative z-10 text-center">
           <h2 class="text-lg font-bold text-teal-600">{{ formData.company }}</h2>
           <p class="text-xs mt-1 text-gray-500">"Committed to Excellence"</p>
         </div>
-        
+
         <!-- Circular Design Element -->
         <div class="circle bg-teal-600 rounded-full absolute" style="width: 80px; height: 80px; bottom: -30px; right: -30px;"></div>
       </div>
@@ -55,6 +55,13 @@ export default class Template9 extends Vue {
 .card {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   position: relative;
+  width: 450px;
+  height: 250px;
+}
+@media (max-width: 768px) { /* Adjust for screens smaller than 768px */
+  .card {
+    width: 350px; /* Set width to 350px for mobile view */
+  }
 }
 
 .left-section {

@@ -62,6 +62,33 @@ export default class Template4 extends Vue {
   border-radius: 15px;
   padding: 10px;
   position: relative;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden; /* Prevent overflow */
+}
+
+@media (max-width: 768px) {
+  .template-box {
+    width: 350px; /* Adjust the width for mobile */
+  }
+
+  /* Adjust the text size and layout for mobile */
+  .name {
+    font-size: 16px;
+  }
+
+  .title,
+  .company-tagline,
+  .company-name {
+    font-size: 10px; /* Smaller font size for mobile */
+  }
+
+  .contact-item {
+    font-size: 8px; /* Make sure the contact info fits well */
+  }
+
+  .contact-box {
+    padding: 0;
+  }
 }
 
 /* Left Section for Name and Company Info */
@@ -71,12 +98,16 @@ export default class Template4 extends Vue {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  word-wrap: break-word; /* Prevent text overflow */
+  max-width: 100%; /* Ensure content doesn't overflow */
 }
 
 .name-box {
   background-color: #3b82f6;
   padding: 10px;
   border-radius: 8px;
+  word-wrap: break-word; /* Ensure text breaks within box */
+  max-width: 100%;
 }
 
 .name {
@@ -84,27 +115,40 @@ export default class Template4 extends Vue {
   font-size: 18px;
   font-weight: bold;
   display: block;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap; /* Prevent text from wrapping into multiple lines */
 }
 
 .title {
   color: white;
   font-size: 12px;
   display: block;
+  margin-top: 5px;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .company-info {
   margin-top: 20px;
+  word-wrap: break-word;
 }
 
 .company-name {
   color: white;
   font-size: 18px;
   font-weight: bold;
+  word-wrap: break-word; /* Ensure company name wraps */
 }
 
 .company-tagline {
   color: white;
   font-size: 12px;
+  margin-top: 5px;
+  word-wrap: break-word;
 }
 
 /* Right Section for Contact Info */
@@ -136,5 +180,11 @@ export default class Template4 extends Vue {
 .contact-item i {
   color: white;
   margin-right: 8px;
+}
+
+/* Prevent text overflow globally */
+* {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 </style>

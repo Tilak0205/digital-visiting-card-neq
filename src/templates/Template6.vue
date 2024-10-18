@@ -1,7 +1,7 @@
 <template>
   <div class="card-container flex w-full justify-center items-center">
     <!-- Card Section -->
-    <div class="card flex rounded-[20px] overflow-hidden" style="width: 450px; height: 250px;">
+    <div class="card flex rounded-[20px] overflow-hidden">
       <!-- Left Section (Company Logo & Info) -->
       <div class="left-section bg-teal-500 text-white p-4 flex flex-col justify-between" style="flex: 1;">
         <div class="logo-section flex justify-center">
@@ -52,6 +52,14 @@ export default class Template6 extends Vue {
 <style scoped>
 .card {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  position: relative;
+  width: 450px;
+  height: 250px;
+}
+@media (max-width: 768px) { /* Adjust for screens smaller than 768px */
+  .card {
+    width: 350px; /* Set width to 350px for mobile view */
+  }
 }
 
 .left-section {
